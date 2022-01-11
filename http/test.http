@@ -23,7 +23,19 @@ client.test("test-hello", function() {
 
 });
 %}
+###
+GET http://127.0.0.1:8080/demo/list
+#Accept:application/json
 
+> {%
+client.test("demo-hello", function() {
+    client.log("测试/demot接口");
+    client.log(JSON.stringify(response.body));
+    client.assert(response.status === 200, "Response status is not 200");
+    client.assert(response.status===200,"返回码不是200");
+
+});
+%}
 
 ###
 POST http:
