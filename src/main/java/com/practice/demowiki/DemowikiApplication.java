@@ -1,13 +1,15 @@
 package com.practice.demowiki;
 
 
+import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @SpringBootApplication
+@MapperScan("com.practice.demowiki.mapper")
 //@ComponentScan({"com.practice","com.test"})
 public class DemowikiApplication {
     private  static  final Logger LOG  = LoggerFactory.getLogger(DemowikiApplication.class);
