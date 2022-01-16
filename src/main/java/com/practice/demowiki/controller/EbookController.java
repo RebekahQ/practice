@@ -1,7 +1,8 @@
 package com.practice.demowiki.controller;
 
-import com.practice.demowiki.domain.Ebook;
+import com.practice.demowiki.req.EbookReq;
 import com.practice.demowiki.resp.CommonResp;
+import com.practice.demowiki.resp.EbookResp;
 import com.practice.demowiki.service.EbookService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +23,9 @@ public class EbookController {
 
     //@RequestMapping(value = "/ebook/list",method = RequestMethod.GET)
     @GetMapping("/list")
-    public CommonResp list(){
-        CommonResp<List<Ebook> > resp = new CommonResp<>();
-        List<Ebook> list = ebookService.list();
+    public CommonResp list(EbookReq req){
+        CommonResp<List<EbookResp> > resp = new CommonResp<>();
+        List<EbookResp> list = ebookService.list(req);
         resp.setContent(list);
         resp.setMessage("获取信息成功");
         return resp;
